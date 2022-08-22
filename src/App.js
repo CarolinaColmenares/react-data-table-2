@@ -37,15 +37,51 @@ const App = () => {
     },
   ]
 
+  //Personalizar Tema
+
+ 
+// createTheme creates a new theme named solarized that overrides the build in dark theme
+createTheme('custom', {
+  text: {
+    primary: '#268bd2',
+    secondary: '#2aa198',
+  },
+  background: {
+    default: '#002b36',
+  },
+  context: {
+    background: '#cb4b16',
+    text: '#FFFFFF',
+  },
+  divider: {
+    default: '#073642',
+  },
+  action: {
+    button: 'rgba(0,0,0,.54)',
+    hover: 'rgba(0,0,0,.08)',
+    disabled: 'rgba(0,0,0,.12)',
+  },
+}, 'dark');
+
+const MyComponent = () => (
+  <DataTable
+    title="Arnold Movies"
+    columns={columns}
+    theme="solarized"
+  />
+);
+
   // 4- Mostrar la Data en DataTable
 
 
   return (
     <div className="App">
-
+        <h1>React DataTable</h1>
       <DataTable 
         columns={columns}
         data={users}
+        theme='custom'
+        pagination
       />
 
     </div>
